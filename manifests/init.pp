@@ -146,11 +146,23 @@ class pe_console_auth(
   if $ad_enable {
 
     if ! $ad_host {
-      fail("You require an AD host")
+      fail("You require a host for the AD authenticator")
     }
 
     if ! $ad_base {
-      fail("You require an AD port, eg 389")
+      fail("You require a port number for the AD authenticator")
+    }
+
+    if ! $ad_filter {
+      fail("You require a filter for the AD authenticator")
+    }
+
+    if ! $ad_auth_user {
+      fail("You require a user for the AD authenticator")
+    }
+
+    if ! $ad_auth_passwd {
+      fail("You require a password for the AD authenticator")
     }
 
     concat::fragment {'ad':
