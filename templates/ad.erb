@@ -1,0 +1,14 @@
+  - class: CASServer::Authenticators::ActiveDirectoryLDAP
+  ldap:
+    host: <%= @ad_host %>
+    port: <%= @ad_port %>
+    base: <%= @ad_base %>
+    filter: <%= @ad_filter %>
+    auth_user: <%= @ad_user %>
+    auth_password: <%= @ad_passwd %>
+    <% if @ad_encryption -%>
+    encryption: <%= @ad_encryption %>
+    <% end -%>
+  <% if @ad_extra_attributes -%>
+  extra_attributes: cn, mail
+  <% end -%>

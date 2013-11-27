@@ -1,0 +1,25 @@
+##### DATABASE #################################################################
+
+database:
+  reconnect: <%= @reconnect %>
+  adapter: <%= @database_adaptor %>
+  database: <%= @database_name %>
+  username: <%= @database_user %>
+  password: '<%= @database_passwd %>'
+  host: <%= @database_host %>
+  port: <%= @database_port %>
+
+##### AUTHENTICATION ###########################################################
+
+authenticator:
+ - class: CASServer::Authenticators::SQLEncrypted
+  database:
+    reconnect: <%= @reconnect %>
+    adapter: <%= @database_adaptor %>
+    database: <%= @database_name %>
+    username: <%= @database_user %>
+    password: '<%= @database_passwd %>'
+    host: <%= @database_host %>
+    port: <%= @database_port %>
+  user_table: <%= @database_user_table %>
+  username_column: <%= @database_user_column %>

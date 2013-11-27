@@ -1,0 +1,11 @@
+ - class: CASServer::Authenticators::LDAP
+   ldap:
+    host: <%= @ldap_host %>
+    port: <%= @ldap_port %>
+    base: <%= @ldap_base %>
+    filter: <%= @ldap_filter %>
+    <% if @ldap_encryption -%>
+    encryption: <%= @ldap_encryption %>
+    <% end -%>
+    auth_user: <%= @ldap_auth_user %>
+    auth_password: <%= @ldap_auth_passwd %>

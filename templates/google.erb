@@ -1,0 +1,8 @@
+  - class: CASServer::Authenticators::Google
+<% if @google_proxy -%>
+  proxy:
+    host: <%= @google_host %>
+    port: <%= @google_port %>
+    username: <%= @google_user %>
+    password: <%= @google_passwd %>
+<% end -%>

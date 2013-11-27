@@ -1,0 +1,43 @@
+##### LOOK & FEEL ##############################################################
+
+# Custom views directory. If set, this will be used instead of 'lib/casserver/views'.
+custom_views: /opt/puppet/share/console-auth/views
+
+# Custom public directory. If set, static content (css, etc.) will be served from here rather
+# than from rubycas-server's internal 'public' directory (but be mindful of any overriding
+# settings you may have in your web server's config).
+public_dir: /opt/puppet/share/console-auth/public
+
+# Custom base URL for fetching assets from a different server/process. If blank all
+# assets will be served from `/` on the current server.
+# console_base_url:
+
+##### LOCALIZATION (L10N) #######################################################
+
+default_locale: en
+
+##### LOGGING ##################################################################
+
+log:
+  file: /var/log/pe-console-auth/cas.log
+  level: INFO
+
+## If you want full database logging, uncomment this next section.
+## Every SQL query will be logged here. This is useful for debugging database
+## problems.
+#db_log:
+#  file: /var/log/pe-console-auth/cas_db.log
+
+##### SINGLE SIGN-OUT ##########################################################
+
+enable_single_sign_out: true
+
+##### OTHER ####################################################################
+
+## Values are specified in seconds.
+maximum_unused_login_ticket_lifetime: <%= @maximum_unused_login_ticket_lifetime %>
+maximum_unused_service_ticket_lifetime: <%= @maximum_unused_service_ticket_lifetime %>
+maximum_session_lifetime: <%= @maximum_session_lifetime %>
+
+## The session secret is randomly generated during installation of Puppet
+session_secret: <%= @session_secret %>
